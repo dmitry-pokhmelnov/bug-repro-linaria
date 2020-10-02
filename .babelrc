@@ -1,0 +1,16 @@
+{
+    "presets": ["react-app", "linaria/babel"],
+    "comments": false,
+    "plugins": [
+      ["babel-plugin-parameter-decorator"],
+      [
+        "module-resolver",
+        {
+          "alias": {
+            "src": "./src"
+          }
+        }
+      ]
+    ]
+  }
+  

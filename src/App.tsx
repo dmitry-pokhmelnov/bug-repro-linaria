@@ -1,25 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from "react";
+
+const First = () => {
+  const TestComponentLazy = React.lazy(async () => {
+    const { RedTestComponent } = await import("./RedTestComponent");
+    return { default: RedTestComponent };
+  });
+  return (
+    <Suspense fallback={<>First loading...</>}>
+      <TestComponentLazy />
+    </Suspense>
+  );
+};
+
+const Second = () => {
+  const TestComponentLazy = React.lazy(async () => {
+    const { GreenTestComponent } = await import("./GreenTestComponent");
+    return { default: GreenTestComponent };
+  });
+  return (
+    <Suspense fallback={<>Second loading...</>}>
+      <TestComponentLazy />
+    </Suspense>
+  );
+};
+
+const Third = () => {
+  const TestComponentLazy = React.lazy(async () => {
+    const { BlueTestComponent } = await import("./BlueTestComponent");
+    return { default: BlueTestComponent };
+  });
+  return (
+    <Suspense fallback={<>Third loading...</>}>
+      <TestComponentLazy />
+    </Suspense>
+  );
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<>App loading...</>}>
+      <First />
+      <Second />
+      <Third />
+    </Suspense>
   );
 }
 
