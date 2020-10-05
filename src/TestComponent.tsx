@@ -1,11 +1,12 @@
 import React from "react";
 import { styled } from "linaria/react";
+// import styled from "astroturf";
+// import styled from "styled-components";
 
 type Color = "red" | "blue" | "green";
 
-const StyledContainer = styled.div<{color: Color}>`
+const StyledContainer = styled.div<{ color: Color }>`
   font-size: 16px;
-  color: ${({color}) => color};
   line-height: 20px;
   text-align: center;
 `;

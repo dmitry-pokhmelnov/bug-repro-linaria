@@ -1,4 +1,5 @@
-const CracoLinariaPlugin = require('craco-linaria');
+const CracoLinariaPlugin = require("craco-linaria");
+// const CracoAstroturfPlugin = require("./src/craco-astroturf-plugin");
 
 module.exports = {
   eslint: {
@@ -13,5 +14,8 @@ module.exports = {
     {
       plugin: CracoLinariaPlugin,
     },
+    // {
+    //   plugin: CracoAstroturfPlugin,
+    // },
   ],
 };
